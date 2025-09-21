@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}外国人手続きナビ{% endblock %}</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <div class="container">
+        <!-- ヘッダー部分 -->
+        <header class="header">
+            <h1><i class="fas fa-passport"></i> 外国人手続きナビ</h1>
+            <p class="subtitle">{% block subtitle %}必要な手続きを簡単に見つけることができます{% endblock %}</p>
+            
+            <!-- ナビゲーション -->
+            <nav class="nav">
+                <a href="{{ url_for('index') }}" class="nav-link">
+                    <i class="fas fa-home"></i> ホーム
+                </a>
+                {% block nav_links %}{% endblock %}
+            </nav>
+        </header>
+
+        <!-- メインコンテンツ -->
+        <main class="main-content">
+            {% block content %}{% endblock %}
+        </main>
+
+        <!-- フッター -->
+        <footer class="footer">
+            <p>&copy; 2025 外国人手続きナビ. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/common.js') }}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

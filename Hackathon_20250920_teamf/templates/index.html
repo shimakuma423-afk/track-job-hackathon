@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="search-container">
+    <form action="{{ url_for('search') }}" method="GET">
+        <input type="text" name="q" class="search-input" placeholder="手続きを検索..." id="searchInput">
+        <i class="fas fa-search search-icon"></i>
+    </form>
+</div>
+
+<div class="buttons-grid" id="buttonsGrid">
+    <a href="{{ url_for('procedure_detail', procedure_id='resident_registration') }}" class="procedure-card-link">
+        <div class="procedure-card" data-keywords="住民票 登録 住所">
+            <i class="fas fa-home card-icon"></i>
+            <div class="card-title">住民票登録</div>
+            <div class="card-description">市区町村での住所登録手続きについて</div>
+        </div>
+    </a>
+
+    <a href="{{ url_for('procedure_detail', procedure_id='passport') }}" class="procedure-card-link">
+        <div class="procedure-card" data-keywords="パスポート 旅券">
+            <i class="fas fa-passport card-icon"></i>
+            <div class="card-title">パスポート</div>
+            <div class="card-description">パスポートの申請・更新手続き</div>
+        </div>
+    </a>
+
+    <a href="{{ url_for('procedure_detail', procedure_id='health_insurance') }}" class="procedure-card-link">
+        <div class="procedure-card" data-keywords="国民健康保険 保険 医療">
+            <i class="fas fa-medkit card-icon"></i>
+            <div class="card-title">国民健康保険</div>
+            <div class="card-description">国民健康保険への加入手続き</div>
+        </div>
+    </a>
+
+    <a href="{{ url_for('procedure_detail', procedure_id='national_pension') }}" class="procedure-card-link">
+        <div class="procedure-card" data-keywords="国民年金 年金">
+            <i class="fas fa-piggy-bank card-icon"></i>
+            <div class="card-title">国民年金</div>
+            <div class="card-description">国民年金への加入・保険料納付</div>
+        </div>
+    </a>
+
+    <a href="{{ url_for('procedure_detail', procedure_id='resident_tax') }}" class="procedure-card-link">
+        <div class="procedure-card" data-keywords="住民税 税金">
+            <i class="fas fa-calculator card-icon"></i>
+            <div class="card-title">住民税</div>
+            <div class="card-description">住民税の納税手続き</div>
+        </div>
+    </a>
+
+    <a href="{{ url_for('procedure_detail', procedure_id='my_number') }}" class="procedure-card-link">
+        <div class="procedure-card" data-keywords="マイナンバー 個人番号">
+            <i class="fas fa-id-card card-icon"></i>
+            <div class="card-title">マイナンバー</div>
+            <div class="card-description">マイナンバーカードの申請</div>
+        </div>
+    </a>
+
+    <a href="{{ url_for('procedure_detail', procedure_id='overseas_voter') }}" class="procedure-card-link">
+        <div class="procedure-card" data-keywords="在外選挙人名簿登録 選挙 投票">
+            <i class="fas fa-vote-yea card-icon"></i>
+            <div class="card-title">在外選挙人名簿登録</div>
+            <div class="card-description">海外からの選挙参加のための登録</div>
+        </div>
+    </a>
+
+    <a href="{{ url_for('procedure_detail', procedure_id='travel_registration') }}" class="procedure-card-link">
+        <div class="procedure-card" data-keywords="渡航登録 外務省">
+            <i class="fas fa-plane card-icon"></i>
+            <div class="card-title">渡航登録</div>
+            <div class="card-description">外務省への渡航先登録</div>
+        </div>
+    </a>
+
+    <a href="{{ url_for('procedure_detail', procedure_id='driver_license') }}" class="procedure-card-link">
+        <div class="procedure-card" data-keywords="運転免許証 免許 車">
+            <i class="fas fa-car card-icon"></i>
+            <div class="card-title">運転免許証</div>
+            <div class="card-description">運転免許証の取得・更新</div>
+        </div>
+    </a>
+</div>
+
+<div class="no-results" id="noResults" style="display: none;">
+    該当する手続きが見つかりませんでした
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/search.js') }}"></script>
+{% endblock %}
